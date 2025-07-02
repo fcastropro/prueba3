@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('register'); }}>
+            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('registro'); }}>
               Registro
             </a>
           </li>
