@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('bonus'); }}>
+            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('bono'); }}>
               Bono
             </a>
           </li>

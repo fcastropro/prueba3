@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Usuarios from './pages/Usuarios';
 import Sueldo from './pages/Sueldo';
+import Bono from './pages/Bono';
 
 const App: React.FC = () => {
   const [section, setSection] = useState('home');
@@ -13,7 +14,7 @@ const App: React.FC = () => {
       {section === 'home' && <Home />}
       {section === 'users' && <Usuarios />}
       {section === 'salary' && <Sueldo />}
-
+      {section === 'bono' && <Bono />}
       <footer className="bg-dark text-white text-center py-3 mt-5">
         <p>© 2025 - Mi App de Prueba - Todos los derechos reservados.</p>
       </footer>
