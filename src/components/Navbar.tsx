@@ -1,43 +1,33 @@
 import React from 'react';
 
-interface NavbarProps {
+interface Props {
   onNavigate: (section: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+const Navbar: React.FC<Props> = ({ onNavigate }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100">
-      <a className="navbar-brand" href="#" onClick={(e) => e.preventDefault()}>
-        Mi App Bootstrap
-      </a>
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/usuarios" onClick={(e) => { e.preventDefault(); onNavigate('users'); }}>
-              Usuarios
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('salary'); }}>
-              Sueldo
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('bono'); }}>
-              Bono
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onNavigate('registro'); }}>
-              Registro
-            </a>
-          </li>
-        </ul>
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Mi App Bootstrap</a>
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link" onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" onClick={() => onNavigate('users')} style={{ cursor: 'pointer' }}>Usuarios</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" onClick={() => onNavigate('salary')} style={{ cursor: 'pointer' }}>Sueldo</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" onClick={() => onNavigate('bono')} style={{ cursor: 'pointer' }}>Bono</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" onClick={() => onNavigate('registro')} style={{ cursor: 'pointer' }}>Registro</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

@@ -1,69 +1,70 @@
 import React, { useState } from 'react';
 
-const RegisterForm: React.FC = () => {
+const RegistroUsuario: React.FC = () => {
   const [nombre, setNombre] = useState('');
   const [edad, setEdad] = useState('');
   const [cargo, setCargo] = useState('Developer');
+  const [mensaje, setMensaje] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Aquí puedes hacer la lógica de envío, por ejemplo, a una API
-    console.log({ nombre, edad, cargo });
-
-    // Limpieza del formulario
+    setMensaje(`Registrado: ${nombre}, edad ${edad}, cargo ${cargo}.`);
+    alert(`Usuario registrado exitosamente: ${nombre}`);
     setNombre('');
     setEdad('');
     setCargo('Developer');
-    alert(`Usuario ${nombre} registrado exitosamente`);
-
   };
 
   return (
     <div className="container mt-5">
-      <h3>Registro de Usuario</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nombre:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
-        </div>
+      <div className="row justify-content-center">
+        <div className="col-md-6 bg-white p-4 shadow rounded">
+          <h3 className="text-center mb-4">Registro de Usuario</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label">Nombre:</label>
+              <input
+                type="text"
+                className="form-control"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Edad:</label>
+              <input
+                type="number"
+                className="form-control"
+                value={edad}
+                onChange={(e) => setEdad(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Cargo:</label>
+              <select
+                className="form-select"
+                value={cargo}
+                onChange={(e) => setCargo(e.target.value)}
+              >
+                <option>Developer</option>
+                <option>Designer</option>
+                <option>Tester</option>
+              </select>
+            </div>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-success">
+                Registrar
+              </button>
+            </div>
+          </form>
 
-        <div className="form-group mt-2">
-          <label>Edad:</label>
-          <input
-            type="number"
-            className="form-control"
-            value={edad}
-            onChange={(e) => setEdad(e.target.value)}
-            required
-          />
+          {mensaje && <div className="alert alert-info mt-3">{mensaje}</div>}
         </div>
-
-        <div className="form-group mt-2">
-          <label>Cargo:</label>
-          <select
-            className="form-control"
-            value={cargo}
-            onChange={(e) => setCargo(e.target.value)}
-          >
-            <option value="Developer">Developer</option>
-            <option value="Designer">Designer</option>
-            <option value="Manager">Tester</option>
-          </select>
-        </div>
-
-        <button type="submit" className="btn btn-success mt-3">
-          Registrar
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
 
-export default RegisterForm;
+export default RegistroUsuario;
